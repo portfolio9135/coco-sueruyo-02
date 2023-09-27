@@ -1,13 +1,13 @@
 "use client";
 
-import { useSelector, useDispatch } from "react-redux";
-import { login, logout, selectUser } from "./GlobalRedux/Features/userSlice";
-import { useEffect } from "react";
-import { auth } from "./firebase";
-import TopPage from "./Components/TopPage";
-import Auth from "./Components/Auth";
+import React, { useEffect } from "react";
+import Auth from "../Components/Auth";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "../GlobalRedux/Features/userSlice";
+import About from "../Components/About";
+import { auth } from "../firebase";
 
-const Home: React.FC = () => {
+const Page = () => {
   const user = useSelector(selectUser);
   const dispath = useDispatch();
 
@@ -30,7 +30,10 @@ const Home: React.FC = () => {
     };
   }, [dispath]);
 
-  return <>{user.uid ? <TopPage /> : <Auth />}</>;
+
+  return (
+    <div className="min-h-screen">{user.uid ? <About /> : <Auth />}</div>
+  );
 };
 
-export default Home;
+export default Page;

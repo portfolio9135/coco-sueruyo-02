@@ -7,10 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      textShadow: {
+        'default': '2px 2px 4px rgba(0, 0, 0, 0.5)', // 影のスタイルを設定
+      },
+      screens: {
+        'xl': '1280px', // これはラージよりも大きなブレイクポイントです
+        // 他にも必要なブレイクポイントを定義できます
       },
     },
   },
