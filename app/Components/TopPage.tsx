@@ -6,6 +6,7 @@ import { selectUser } from "../GlobalRedux/Features/userSlice";
 import Link from "next/link";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const TopPage = () => {
@@ -90,10 +91,7 @@ const TopPage = () => {
 
           <div className="mt-8 flex flex-col items-center  gap-8 justify-center px-4 xl:flex-row">
             {posts.map((post, index) => (
-              <Link
-                href={`/post-list/post-details?id=${post.id}`}
-                key={post.id}
-              >
+              <Link href={`/post-list/post-details?id=${post.id}`}>
                 <section className="w-80 h-56 border rounded-md border-gray-300 border-y-2 border-x-2 px-4 py-6 c-btn-03 md:w-96">
                   <div className="flex items-center w-fit mx-auto mb-4 text-xl">
                     {index === 0 && (
@@ -137,7 +135,6 @@ const TopPage = () => {
                     <div className="w-1/2">
                       <div className="flex items-center">
                         <div className="">いいね！</div>
-
                         <div className="mr-1">
                           <FavoriteIcon />
                         </div>
