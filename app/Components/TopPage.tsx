@@ -91,7 +91,7 @@ const TopPage = () => {
 
           <div className="mt-8 flex flex-col items-center  gap-8 justify-center px-4 xl:flex-row">
             {posts.map((post, index) => (
-              <Link href={`/post-list/post-details?id=${post.id}`}>
+              <Link href={`/post-list/post-details?id=${post.id}`} key={index}>
                 <section className="w-80 h-56 border rounded-md border-gray-300 border-y-2 border-x-2 px-4 py-6 c-btn-03 md:w-96">
                   <div className="flex items-center w-fit mx-auto mb-4 text-xl">
                     {index === 0 && (
