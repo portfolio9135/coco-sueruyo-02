@@ -270,17 +270,15 @@ const PostDetails: React.FC = () => {
               </div>
               <h1 className="font-bold text-2xl mb-2">{post.postTitle}</h1>
               <button className="w-8 mb-1" onClick={toggleLike}>
-
                 {isLiked ? (
                   <div className="mr-1">
-                    <FavoriteIcon />
+                    <FavoriteIcon style={{ color: "red" }} />
                   </div>
                 ) : (
                   <div className="mr-1">
                     <FavoriteBorderIcon />
                   </div>
                 )}
-
               </button>
               {/* postIdがnullの時、空文字列 '' を使ってデフォルト値を設定。これで型エラー回避。 */}
               <p>いいね！{post.likesCount || 0}件</p>

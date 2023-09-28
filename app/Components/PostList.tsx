@@ -5,6 +5,8 @@ import { db } from "../firebase";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import Link from "next/link";
 
+import FavoriteIcon from "@mui/icons-material/Favorite";
+
 const PostList: React.FC = () => {
   const [posts, setPosts] = useState([
     {
@@ -80,12 +82,10 @@ const PostList: React.FC = () => {
 
                     <div className="flex items-center">
                       <div className="">いいね！</div>
-                      <img
-                        className="w-4 mr-1"
-                        src="/img/postDetails/on-heart.svg"
-                        alt=""
-                      />
-                      <p> {post.likesCount}件</p>
+                      <div className="mr-1">
+                        <FavoriteIcon style={{ color: "red" }} />
+                      </div>
+                      <p>{post.likesCount}件</p>
                     </div>
 
                     <div className="mt-1 text-sm md:text-base">

@@ -136,7 +136,7 @@ const TopPage = () => {
                       <div className="flex items-center">
                         <div className="">いいね！</div>
                         <div className="mr-1">
-                          <FavoriteIcon />
+                        <FavoriteIcon style={{ color: 'red' }} />
                         </div>
                         <p> {post.likesCount}件</p>
                       </div>
