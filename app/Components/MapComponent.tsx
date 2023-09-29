@@ -9,7 +9,7 @@ const MapComponent = ({ address }: { address: string }) => {
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
         address
-      )}&key=AIzaSyAJ3CXGF7yZXfBCqo9zF-vMSjUZq5ed3LU`
+      )}&key=AIzaSyD8MPRZ3OcGJ8N40Zh5ieP3PRTf7BDAw2A`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -23,22 +23,25 @@ const MapComponent = ({ address }: { address: string }) => {
   return (
     <>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyAJ3CXGF7yZXfBCqo9zF-vMSjUZq5ed3LU" }}
+        bootstrapURLKeys={{ key: "AIzaSyD8MPRZ3OcGJ8N40Zh5ieP3PRTf7BDAw2A" }}
         center={mapCenter}
         zoom={15}
       >
         {/* マーカーを追加 */}
         <Marker lat={mapCenter.lat} lng={mapCenter.lng} />
-
       </GoogleMapReact>
     </>
   );
 };
 
 // マーカーコンポーネント
-const Marker = ({lat, lng}: {lat:number; lng:number}) => (
+const Marker = ({ lat, lng }: { lat: number; lng: number }) => (
   <div style={{ width: "30px", height: "30px" }}>
-    <img className="w-10 c-absolute-04" src="/img/PostDetails/map-point.jpg" alt="マップのポイントアイコン" />
+    <img
+      className="w-10 c-absolute-04"
+      src="/img/PostDetails/map-point.jpg"
+      alt="マップのポイントアイコン"
+    />
     {/* ここにマーカーのデザインをカスタマイズできます */}
   </div>
 );
