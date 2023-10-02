@@ -9,7 +9,7 @@ const MapComponent = ({ address }: { address: string }) => {
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
         address
-      )}&key=AIzaSyD8MPRZ3OcGJ8N40Zh5ieP3PRTf7BDAw2A`
+      )}&key=AIzaSyCiStECzNUnYtK_4L6mVxNwtnWvJKIkyw8`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -23,7 +23,7 @@ const MapComponent = ({ address }: { address: string }) => {
   return (
     <>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyD8MPRZ3OcGJ8N40Zh5ieP3PRTf7BDAw2A" }}
+        bootstrapURLKeys={{ key: "AIzaSyCiStECzNUnYtK_4L6mVxNwtnWvJKIkyw8" }}
         center={mapCenter}
         zoom={15}
       >

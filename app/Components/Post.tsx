@@ -149,6 +149,17 @@ const Post: React.FC = () => {
             </section>
 
             <section>
+              <h2 className="mt-4">喫煙所名</h2>
+              <input
+                className="w-full border border-gray-200 rounded-md mt-4 p-4"
+                placeholder="新宿区の喫煙所"
+                type="text"
+                value={postTitle}
+                onChange={(e) => setPostTitle(e.target.value)}
+              />
+            </section>
+
+            <section>
               <h2 className="mt-4">
                 住所 <span className="text-red-500">*</span>
               </h2>
@@ -158,17 +169,6 @@ const Post: React.FC = () => {
                 type="text"
                 value={postAddress}
                 onChange={(e) => setPostAddress(e.target.value)}
-              />
-            </section>
-
-            <section>
-              <h2 className="mt-4">喫煙所名</h2>
-              <input
-                className="w-full border border-gray-200 rounded-md mt-4 p-4"
-                placeholder="新宿区の喫煙所"
-                type="text"
-                value={postTitle}
-                onChange={(e) => setPostTitle(e.target.value)}
               />
             </section>
 
