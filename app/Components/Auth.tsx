@@ -133,9 +133,11 @@ const Auth: React.FC = () => {
             <h1 className="absolute top-16 left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center text-white text-xl w-full md:text-xl lg:text-2xl">
               <div className="c-text-shadow">あなたの声でつくる</div>
               <div className="c-text-shadow mt-2 lg:mt-4">
-                リハビリ情報共有サイト
+                喫煙所情報共有サイト
               </div>
-              <div className="c-text-shadow mt-2 lg:mt-4">RehaBase</div>
+              <div className="c-text-shadow mt-2 lg:mt-4">
+                CoCo Sueruyo
+                </div>
             </h1>
           </div>
 
