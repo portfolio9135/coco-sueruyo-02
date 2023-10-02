@@ -300,9 +300,9 @@ const PostDetails: React.FC = () => {
                 alt="投稿画像"
               />
 
-              <div className="mt-10" style={{ height: "300px", width: "100%" }}>
+              {/* <div className="mt-10" style={{ height: "300px", width: "100%" }}>
                 <MapComponent address={post.postAddress} />
-              </div>
+              </div> */}
 
               <div className="mt-4">
                 <p className="text-md">住所</p>
