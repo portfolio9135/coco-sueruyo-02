@@ -45,7 +45,7 @@ const PostList: React.FC = () => {
     return () => {
       unSub();
     };
-  }, [posts]);
+  }, []);
 
   return (
     <div className="min-h-screen">

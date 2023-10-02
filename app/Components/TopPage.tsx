@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useSelector } from "react-redux";
-import { selectUser } from "../GlobalRedux/Features/userSlice";
 import Link from "next/link";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, limitToLast, onSnapshot, orderBy, query, startAfter } from "firebase/firestore";
 import { db } from "../firebase";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const TopPage = () => {
-  const user = useSelector(selectUser);
 
   const [posts, setPosts] = useState([
     {
@@ -26,7 +23,7 @@ const TopPage = () => {
     },
   ]);
 
-  //【投稿の全てと各投稿のいいね数を取得】
+  //【投稿の全てと各投稿のいいね数を最初の一回のみ取得】
   useEffect(() => {
     //いいね数が多い順に取得
     const q = query(collection(db, "posts"), orderBy("likesCount", "desc"));
@@ -51,7 +48,7 @@ const TopPage = () => {
     return () => {
       unSub();
     };
-  }, [posts]);
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -71,10 +68,14 @@ const TopPage = () => {
             <div className="c-text-shadow mt-4 lg:mt-10">CoCo Sueruyo</div>
           </h1>
         </div>
-        <a href="https://jp.freepik.com/free-vector/smoking-activity-landing-page-cigarettes-package_6929231.htm#query=isometric%E3%80%80smok&position=4&from_view=search&track=ais">
-          著作者：vectorpouch
-        </a>
-        ／出典：Freepik
+
+        <div>
+          <a href="https://jp.freepik.com/free-vector/smoking-activity-landing-page-cigarettes-package_6929231.htm#query=isometric%E3%80%80smok&position=4&from_view=search&track=ais">
+            著作者：vectorpouch
+          </a>
+          <p>／出典：Freepik</p>
+        </div>
+
         <div>
           ロゴは{" "}
           <a
@@ -85,6 +86,7 @@ const TopPage = () => {
           </a>{" "}
           ロゴメーカーさんに作られる
         </div>
+
         {/* 総合ランキング */}
         <div className="mt-16 w-full">
           <p className="font-bold text-4xl">総合ランキング</p>
@@ -136,7 +138,7 @@ const TopPage = () => {
                       <div className="flex items-center">
                         <div className="">いいね！</div>
                         <div className="mr-1">
-                        <FavoriteIcon style={{ color: 'red' }} />
+                          <FavoriteIcon style={{ color: "red" }} />
                         </div>
                         <p> {post.likesCount}件</p>
                       </div>
