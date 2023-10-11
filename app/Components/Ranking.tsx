@@ -102,7 +102,7 @@ const Ranking = () => {
                     }
                     alt="投稿写真"
                     width={300}
-                    height={0}
+                    height={50}
                   />
                 </div>
 
