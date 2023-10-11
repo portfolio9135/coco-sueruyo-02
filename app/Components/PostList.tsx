@@ -6,6 +6,7 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import Link from "next/link";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import Image from "next/image";
 
 const PostList: React.FC = () => {
   const [posts, setPosts] = useState([
@@ -67,7 +68,7 @@ const PostList: React.FC = () => {
               <section className="mt-10 border rounded-md border-gray-300 border-y-2 border-x-2 px-4 py-6 c-btn-03">
                 <div className="flex">
                   <div className="w-1/2 mr-4">
-                    <img
+                    <Image
                       className="h-32 w-full object-cover"
                       src={
                         post.postImage
@@ -75,6 +76,8 @@ const PostList: React.FC = () => {
                           : "/img/Common/post-dummy.png"
                       }
                       alt="投稿写真"
+                      width={300}
+                      height={0}
                     />
                   </div>
                   <div className="w-1/2">

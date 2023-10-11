@@ -6,6 +6,7 @@ import { db } from "../firebase";
 import React, { useEffect, useState } from "react";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import Image from "next/image";
 
 const Ranking = () => {
   //【投稿をuseStateで管理】
@@ -60,24 +61,30 @@ const Ranking = () => {
             <section className="w-80 h-56 border rounded-md border-gray-300 border-y-2 border-x-2 px-4 py-6 c-btn-03 md:w-96">
               <div className="flex items-center w-fit mx-auto mb-4 text-xl">
                 {index === 0 && (
-                  <img
-                    className="w-12 mr-4 -mt-3"
-                    src="img/TopPage/crown1.png"
+                  <Image
+                    src="/img/TopPage/crown1.png"
                     alt="ランキングの王冠 1位"
+                    width={50}
+                    height={50}
+                    className="w-12 mr-4 -mt-3"
                   />
                 )}
                 {index === 1 && (
-                  <img
-                    className="w-12 mr-4 -mt-3"
-                    src="img/TopPage/crown2.png"
+                  <Image
+                    src="/img/TopPage/crown2.png"
                     alt="ランキングの王冠 2位"
+                    width={50}
+                    height={50}
+                    className="w-12 mr-4 -mt-3"
                   />
                 )}
                 {index === 2 && (
-                  <img
-                    className="w-12 mr-4 -mt-3"
-                    src="img/TopPage/crown3.png"
+                  <Image
+                    src="/img/TopPage/crown3.png"
                     alt="ランキングの王冠 3位"
+                    width={50}
+                    height={50}
+                    className="w-12 mr-4 -mt-3"
                   />
                 )}
 
@@ -86,14 +93,16 @@ const Ranking = () => {
 
               <div className="flex w-full">
                 <div className="w-1/2 mr-4">
-                  <img
+                  <Image
                     className="h-32 object-cover"
-                    src={
+                    src= {
                       post.postImage
                         ? post.postImage
                         : "/img/Common/post-dummy.png"
                     }
                     alt="投稿写真"
+                    width={300}
+                    height={0}
                   />
                 </div>
 

@@ -18,6 +18,7 @@ import { auth, provider, storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { IconButton, Modal, TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import Image from "next/image";
 
 const Auth: React.FC = () => {
   // 【useState 状態変数まとめ】
@@ -127,16 +128,21 @@ const Auth: React.FC = () => {
         <div className="c-template-01__inner flex flex-col items-center max-w-xl mx-auto lg:max-w-max lg:flex-row lg:justify-between lg:gap-8">
           {/* メインビジュアル */}
           <div className="relative lg:w-1/2">
-            <img src="/img/AuthPage/mv.jpg" alt="メインビジュアル" />
+            {/* <img src="/img/AuthPage/mv.jpg" alt="メインビジュアル" /> */}
+
+            <Image
+              src="/img/AuthPage/mv.jpg"
+              alt="メインビジュアル"
+              width={500}
+              height={100}
+            />
 
             <h1 className="absolute top-16 left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center text-white text-xl w-full md:text-xl lg:text-2xl">
               <div className="c-text-shadow">あなたの声でつくる</div>
               <div className="c-text-shadow mt-2 lg:mt-4">
                 喫煙所情報共有サイト
               </div>
-              <div className="c-text-shadow mt-2 lg:mt-4">
-                CoCo Sueruyo
-                </div>
+              <div className="c-text-shadow mt-2 lg:mt-4">CoCo Sueruyo</div>
             </h1>
           </div>
 
@@ -303,9 +309,7 @@ const Auth: React.FC = () => {
               </div>
 
               <Modal open={openModal} onClose={() => setOpenModal(false)}>
-                <div
-                  className="c-absolute-04 outline-none absolute w-400 rounded-10 bg-white shadow-lg p-10"
-                >
+                <div className="c-absolute-04 outline-none absolute w-400 rounded-10 bg-white shadow-lg p-10">
                   <div className="text-center">
                     <TextField
                       InputLabelProps={{
