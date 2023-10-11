@@ -18,7 +18,6 @@ import { auth, provider, storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { IconButton, Modal, TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
-import Image from "next/image";
 
 const Auth: React.FC = () => {
   // 【useState 状態変数まとめ】
