@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { selectUser } from "../GlobalRedux/Features/userSlice";
-import { auth } from "../firebase";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+
+import { selectUser } from "../GlobalRedux/Features/userSlice";
+import { auth } from "../firebase";
+import PrimaryButton from "./atoms/button/PrimaryButton";
 
 const Header = () => {
   const user = useSelector(selectUser);
@@ -22,7 +24,11 @@ const Header = () => {
             className="text-4xl w-56 transition-opacity duration-500 hover:opacity-50"
             href="/"
           >
-            <img className="w-28" src="/img/Common/logo.png" alt="ヘッダーロゴ" />
+            <img
+              className="w-28"
+              src="/img/Common/logo.png"
+              alt="ヘッダーロゴ"
+            />
           </Link>
 
           <div className="flex items-center">
@@ -77,10 +83,7 @@ const Header = () => {
               投稿一覧
             </Link>
 
-            <Link
-              href="/post"
-              className="hover:opacity-50 duration-300"
-            >
+            <Link href="/post" className="hover:opacity-50 duration-300">
               <div className="flex items-center relative mr-12">
                 <p>投稿する</p>
                 <img
@@ -92,12 +95,9 @@ const Header = () => {
             </Link>
 
             {user.uid && (
-              <button
-                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transform hover:scale-105 transition duration-300 ease-in-out"
-                onClick={() => auth.signOut()}
-              >
+              <PrimaryButton onClick={() => auth.signOut()}>
                 ログアウト
-              </button>
+              </PrimaryButton>
             )}
 
             {user.uid && (
@@ -170,12 +170,12 @@ const Header = () => {
               </Link>
 
               {user.uid && (
-                <button
-                  className="block mt-4 mx-auto c-btn-02"
+                <PrimaryButton
+                  className="block mt-4 mx-auto"
                   onClick={() => auth.signOut()}
                 >
                   ログアウト
-                </button>
+                </PrimaryButton>
               )}
             </nav>
           </div>

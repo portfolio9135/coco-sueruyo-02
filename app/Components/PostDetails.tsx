@@ -17,7 +17,6 @@ import {
 
 import { db } from "../firebase";
 import { useSearchParams } from "next/navigation";
-import MapComponent from "./MapComponent";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../GlobalRedux/Features/userSlice";
 import SendIcon from "@mui/icons-material/Send";
@@ -29,8 +28,9 @@ import {
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import PrimaryButton from "./atoms/button/PrimaryButton";
 
-//【コメントの方を定義】
+//【コメントの型を定義】
 interface COMMENT {
   id: string;
   avatar: string;
@@ -72,7 +72,6 @@ const PostDetails: React.FC = () => {
   //【いいね情報をreduxから取得】
   const postLikes = useSelector(selectPostLikes);
   const [isLiked, setIsLiked] = useState(false);
-  const [likesCount, setLikesCount] = useState(0);
 
   //*******************************************************************
   //【関数___コメント機能】
@@ -300,19 +299,15 @@ const PostDetails: React.FC = () => {
                 alt="投稿画像"
               />
 
-              {/* <div className="mt-10" style={{ height: "300px", width: "100%" }}>
-                <MapComponent address={post.postAddress} />
-              </div> */}
-
               <div className="mt-4">
                 <p className="text-md">住所</p>
                 <p>{post.postAddress}</p>
               </div>
 
               <div className="mt-4">
-                <button className="c-btn-02" onClick={openInGoogleMaps}>
+                <PrimaryButton onClick={openInGoogleMaps}>
                   Google マップで表示
-                </button>
+                </PrimaryButton>
               </div>
 
               <div className="mt-10 p-4 border rounded-lg">
